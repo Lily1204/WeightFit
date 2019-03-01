@@ -56,8 +56,10 @@ export class RegisterModalComponent  {
   onSubmit() {
     this.service.registro(this.emailControl.value, this.passwordControl.value);
     console.log(this.emailControl.value, this.passwordControl.value);
-    this.resgister.newRegister(this.form.value).subscribe(
+    this.resgister.newRegister(this.form.value).subscribe( ru =>
+    ru = this.router.navigate(["/landing"])
     );
+    this.dialogRef.close();
   }
 
 
