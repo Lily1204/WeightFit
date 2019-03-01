@@ -1,0 +1,94 @@
+<!-- <span fxLayoutAlign="end end" fxLayout="row">
+  <mat-icon class="icon" matSuffix>add_circle</mat-icon>
+</span> -->
+<form [formGroup]="form" fxLayout="column" class="container">
+  <h1 mat-dialog-title class="title">Registrarse</h1>
+
+  <mat-form-field appearance="legacy">
+    <mat-icon matSuffix>account_box</mat-icon>
+    <mat-label>Nombre</mat-label>
+    <input formControlName="name" matInput placeholder="Nombre">
+    <div class="form__input-error" *ngIf="nameControl.invalid && nameControl.touched">
+      <p *ngIf="nameControl.errors?.required" class="m-0">
+        Este campo es requerido
+      </p>
+    </div>
+  </mat-form-field>
+<div fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-form-field appearance="legacy">
+    <!-- <mat-icon matSuffix>mail</mat-icon> -->
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="Email">
+    <div class="form__input-error" *ngIf="emailControl.invalid && emailControl.touched">
+      <p *ngIf="emailControl.errors?.required" class="m-0">
+        Este campo es requerido
+      </p>
+    </div>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy">
+    <!-- <mat-icon matSuffix>vpn_key</mat-icon> -->
+    <mat-label>Password</mat-label>
+    <input formControlName="password" type="password" matInput placeholder="Password">
+    <div class="form__input-error" *ngIf="passwordControl.invalid && passwordControl.touched">
+      <p *ngIf="passwordControl.errors?.required" class="m-0">
+        Este campo es requerido
+      </p>
+    </div>
+  </mat-form-field>
+</div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field appearance="legacy">
+      <mat-label>Peso</mat-label>
+      <input class="container-2" formControlName="weight" type="number" matInput placeholder="Peso">
+      <div class="form__input-error" *ngIf="weightControl.invalid && weightControl.touched">
+        <p *ngIf="weightControl.errors?.required" class="m-0">
+          Este campo es requerido
+        </p>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Altura</mat-label>
+      <input class="container-2" formControlName="height" type="number" matInput placeholder="Altura">
+      <div class="form__input-error" *ngIf="heightControl.invalid && heightControl.touched">
+        <p *ngIf="heightControl.errors?.required" class="m-0">
+          Este campo es requerido
+        </p>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-form-field appearance="legacy">
+      <mat-label>Genero</mat-label>
+      <input class="container-2" formControlName="gender" matInput placeholder="Genero">
+      <div class="form__input-error" *ngIf="genderControl.invalid && genderControl.touched">
+        <p *ngIf="genderControl.errors?.required" class="m-0">
+          Este campo es requerido
+        </p>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Edad</mat-label>
+      <input class="container-2" formControlName="age" type="number" matInput placeholder="Edad">
+      <div class="form__input-error" *ngIf="ageControl.invalid && ageControl.touched">
+        <p *ngIf="ageControl.errors?.required" class="m-0">
+          Este campo es requerido
+        </p>
+      </div>
+    </mat-form-field>
+  </div>
+
+  <mat-dialog-actions fxLayoutAlign="space-around center">
+    <button (click)="regresar()"  mat-dialog-close  mat-stroked-button class="button">
+      Cancelar
+    </button>
+    <button (click)="onSubmit()" mat-stroked-button class="button" [disabled]="form.invalid">
+      Guardar
+    </button>
+  </mat-dialog-actions>
+</form>

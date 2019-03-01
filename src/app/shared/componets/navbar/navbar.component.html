@@ -1,0 +1,31 @@
+<mat-toolbar
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  class="color-toolbar"
+>
+  <img height="60px" src="../../../../assets/images/corazon.png" alt="Medio Melón Logo" />
+  <div fxShow.gt-xs="true" fxHide fxLayout="row" fxLayoutGap="24px">
+    <button mat-button
+    class="outline" 
+    (click)="x()">
+      RESUMEN
+    </button>
+    <button
+    mat-button
+      class="outline"
+      (click)="x()"
+    >
+      ESTADISTICA
+    </button>
+    <button
+    mat-button
+      class="outline"
+      (click)="x()"
+    >
+      HISTORIAL
+    </button>
+  </div>
+  <button (click)="onToggle()" fxShow.lt-sm="true" fxHide mat-icon-button>
+    <mat-icon aria-label="Icon-button with a menu">menu</mat-icon>
+  </button>
+</mat-toolbar>

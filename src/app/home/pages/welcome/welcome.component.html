@@ -1,0 +1,20 @@
+<div fxLayout="column" class="container" fxflex="100%">
+  <div class="leyenda">
+    <img src="../../../../assets/images/corazon.png" alt="" class="image">
+    <h1>Bienvenido a WeightFit</h1>
+    <div class="description">
+      <p>Introduce tus datos para calcular tu IMC.</p>
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <button mat-raised-button 
+        class="button" 
+        (click)="login($event)"
+        >LOGIN</button>
+        <button 
+        mat-raised-button 
+        class="button" 
+        (click)="sign($event)"
+        >SIGN UP</button>
+      </div>
+    </div>
+  </div>
+</div>

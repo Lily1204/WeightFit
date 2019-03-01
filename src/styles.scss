@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+@import "variables";
+
+html, body{
+    margin: 0;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+mat-sidenav.mat-drawer{
+    width: 100vw;
+    background-color: $app-primary-color;
+}
+
+.app-container{
+    height: 100%;
+}
+
+.outline.mat-stroked-button:not([disabled]) {
+    border-color: white;
+}
+
+.inverse.mat-stroked-button:not([disabled]) {
+    background-color: white;
+}

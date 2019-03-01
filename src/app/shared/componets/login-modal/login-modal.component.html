@@ -1,0 +1,51 @@
+
+    <!-- <span  fxLayoutAlign="end end" fxLayout="row" (click)="reset()">
+        <mat-icon class="icon" matSuffix>add_circle</mat-icon>
+    </span> -->
+<form [formGroup]="form" fxLayout="column" class="container">
+  <h1 mat-dialog-title class="title">Iniciar Seciòn</h1>
+  <p>
+    <mat-form-field >
+      <mat-icon matSuffix>mail</mat-icon>
+      <mat-label>Email *</mat-label>
+      <input 
+       formControlName="email" 
+       type="email"
+       matInput 
+       placeholder="Email">
+       <div class="form__input-error" *ngIf="emailControl.invalid && emailControl.touched">
+					<p *ngIf="emailControl.errors?.required" class="m-0">
+						Este campo es requerido
+					</p>
+				</div>
+    </mat-form-field>
+  </p>
+  <p>
+      <mat-form-field appearance="legacy">
+        <mat-icon matSuffix>vpn_key</mat-icon>
+        <mat-label>Password *</mat-label>
+        <input  
+        formControlName="password" 
+        type="password"
+        matInput 
+        placeholder="password">
+        <div class="form__input-error" *ngIf="passwordControl.invalid && passwordControl.touched">
+            <p *ngIf="passwordControl.errors?.required" class="m-0">
+              Este campo es requerido
+            </p>
+            <p *ngIf="passwordControl.errors?.minLength" class="m-0">
+                Debe tener minimo 5 caracteres
+              </p>
+          </div>
+      </mat-form-field>
+    </p>
+  <mat-dialog-actions>
+    <button 
+    (click)="onSubmit()" 
+    mat-stroked-button 
+    class="button" 
+    [disabled]="form.invalid">
+      Guardar
+    </button>
+  </mat-dialog-actions>
+</form>
