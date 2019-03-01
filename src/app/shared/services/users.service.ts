@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class UserService {
     API_ENDPOINT = 'https://weightfit-52010.firebaseio.com/users.json';
+    API_ENDPOINT_2 = 'https://weightfit-52010.firebaseio.com/users/';
 
     constructor(private afDB: AngularFireDatabase, private http: HttpClient) { }
 
@@ -17,10 +18,8 @@ export class UserService {
             return res;
         }));
     }
-    public getRegister() {
-        return this.http.get(this.API_ENDPOINT).pipe(map(resultado => {
-            // const data = resultado.json().users;
-            return resultado;
-        }));
+    public getRegister(key$: string) {
+        console.log(`${this.API_ENDPOINT_2} /${key$}.json`);
+        return this.http.get<Registro>( `${ this.API_ENDPOINT_2 }${ key$ }.json` );
     }
 }
