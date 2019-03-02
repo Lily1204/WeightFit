@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/Operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/Operators';
 import { Registro } from '../models/users';
 @Injectable()
 export class AutorizacionService {
@@ -11,7 +11,6 @@ export class AutorizacionService {
     userId: string;
     constructor (
         private angularFireAuth: AngularFireAuth,
-        public afs: AngularFirestore,
         private router: Router) {
 
     }

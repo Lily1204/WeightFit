@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
 import { map } from 'rxjs/operators';
 import { Registro } from '../models/users';
 import { AngularFirestore } from '@angular/fire/firestore';
