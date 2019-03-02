@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { map } from 'rxjs/Operators';
+
 
 @Injectable()
 export class AutorizacionService {
@@ -37,9 +37,6 @@ registro = (email, password) => {
     });
 }
 
-getAuth() {
- this.angularFireAuth.authState.pipe(map(auth => auth));
-}
 
 logout() {
     return this.angularFireAuth.auth.signOut().then(() => {
