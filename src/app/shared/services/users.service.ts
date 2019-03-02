@@ -10,7 +10,6 @@ export class UserService {
     API_ENDPOINT_2 = 'https://weightfit-52010.firebaseio.com/users/';
 
     constructor(
-        private db: AngularFirestore,
         private http: HttpClient) { }
 
     public newRegister(user: Registro) {
@@ -25,7 +24,4 @@ export class UserService {
         return this.http.get<Registro>( `${ this.API_ENDPOINT_2 }${ key$ }.json` );
     }
 
-    getUsers(email: string) {
-        return this.db.collection("user", ref => ref.where("email", "==", email)).valueChanges();
-    }
 }
