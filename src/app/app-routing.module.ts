@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { LandingComponent } from './home/pages/landing/landing.component';
+import { WelcomeComponent } from './home/pages/welcome/welcome.component';
 
-const routes: Routes = [{
+const routes: Routes = [
 
-  path: '',
-  pathMatch: 'full',
-  loadChildren: './home/home.routing#HomeRoutingModule'
-}
+  {path: '', component: WelcomeComponent},
+  {path: 'landing', component: LandingComponent, canActivate: [AuthGuard]},
+
 ];
 
 @NgModule({

@@ -5,16 +5,16 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule, MatIconModule, MatInputModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
-import { WelcomeComponent } from "./welcome.component";
 import { LoginModalModule } from 'src/app/shared/componets/login-modal/login-modal.module';
+import { NavbarModule } from 'src/app/shared/componets/navbar/navbar.module';
 import { RegisterModalModule } from 'src/app/shared/componets/register-modal/register-modal.module';
+import { WelcomeComponent } from "./welcome.component";
 
-import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [{
-  path: '',
-  component: WelcomeComponent
-}];
+// const routes: Routes = [{
+//   path: '',
+//   component: WelcomeComponent
+// }];
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -27,7 +27,8 @@ const COMMON_IMPORTS = [
   MatCheckboxModule,
   MatIconModule,
   LoginModalModule,
-  RegisterModalModule
+  RegisterModalModule,
+  NavbarModule,
 ];
 const COMMON_DECLARATIONS = [WelcomeComponent];
 const COMMON_EXPORTS = [WelcomeComponent];
@@ -39,7 +40,7 @@ export default {
 };
 
 @NgModule({
-  imports: [COMMON_IMPORTS, RouterModule.forChild(routes)],
+  imports: [COMMON_IMPORTS ],
   exports: [COMMON_DECLARATIONS],
   declarations: [COMMON_DECLARATIONS],
 })

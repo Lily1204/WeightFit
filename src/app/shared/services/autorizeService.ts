@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from "@angular/fire/firestore";
 import { Router } from '@angular/router';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/Operators';
+import { Registro } from '../models/users';
 @Injectable()
 export class AutorizacionService {
-    constructor (private angularFireAuth: AngularFireAuth,
+    user: Observable<Registro>;
+    userId: string;
+    constructor (
+        private angularFireAuth: AngularFireAuth,
+        public afs: AngularFirestore,
         private router: Router) {
-    //    this.isLogged();
+
     }
-public login = (email, password) => {
+
+
+ login = (email, password) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword (email, password)
     .then ((response) => {
         alert ('Usuario logeado con exito');
@@ -20,7 +29,8 @@ public login = (email, password) => {
         console.log(error);
     });
 }
-public registro = (email, password) => {
+
+registro = (email, password) => {
     this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
     .then ((response) => {
         alert ('Usuario Registrado con exito');
@@ -31,9 +41,20 @@ public registro = (email, password) => {
         console.log(error);
     });
 }
-// para saber si el usuario esta logeado
-/*
-public isLogged() {
-return this.angularFireAuth.authState;
-}*/
+
+getAuth() {
+ this.angularFireAuth.authState.pipe(map(auth => auth));
+}
+
+logout() {
+    return this.angularFireAuth.auth.signOut().then(() => {
+        localStorage.removeItem("user");
+        this.router.navigate(["/"]);
+      });
+  }
+
+get isLoading() {
+    return !!this.angularFireAuth.auth.currentUser;
+  }
+
 }

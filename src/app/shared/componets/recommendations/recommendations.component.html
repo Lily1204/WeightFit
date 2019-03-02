@@ -1,19 +1,45 @@
-<div class="fresh" fxLayout='column' fxLayout.gt-sm="row" fxFlexAlign="center" ngClass.sm=text>
-    <div class="item--info" fxFlex="100%" fxFlex.gt-sm="50%" fxLayoutAlign="center center">
-      <div fxLayout='column' fxFlex.gt-sm="80%" class="item--info__content">
-        <h2 class="item__title-banner"><strong> WeightFit </strong> </h2>
-        <p class="item__desc" fxFlex.gt-lg="60%">
-          Sigue una alimentación saludable, equilibrada y variada.
-           Basa tu alimentación en productos naturales y de la tierra, 
-           come cada día frutas y verduras. Opta por cereales integrales,
-            disfruta de los frutos secos y no te olvides de las legumbres.
-            Utiliza cocciones suaves, que no necesiten mucho aceite y dale 
-            una patada a todos los productos ultraprocesados y preparados.
-        </p>
-        <p>
-          Practica actividad física a diario, mantente activo, camina, corre, baila, juega, ríe…
-        </p>
-      </div>
-    </div>
-    <div class="img" fxFlex="100%" fxFlex.gt-sm="50%" style="width: 100%; height: 550px;"></div>
+<div class="fresh"  fxFlex="100%" fxLayout='column' fxLayout.gt-sm="row" fxFlexAlign="center center" ngClass.sm=text>
+  <div class="item--info" fxFlex="100%" fxFlex.gt-sm="50%" fxLayoutAlign="center center">
+  <mat-card class="card" fxFlexAlign="center center">
+    <mat-card-content  >
+      <mat-card-title>nombre:  </mat-card-title>
+      <mat-card-subtitle>edad: </mat-card-subtitle>
+      <mat-card-subtitle>peso: </mat-card-subtitle>
+      <mat-card-subtitle>altura: </mat-card-subtitle>
+    </mat-card-content>
+  </mat-card>
   </div>
+  <div class="img"  fxFlex="100%" fxFlex.gt-sm="50%" style="width: 100%; height: 550px;">
+    <div class="container" fxFlex="100%" fxFlex.gt-sm="50%" fxLayoutAlign="center center">
+    <mat-card style="max-width: 450px;">
+      <mat-card-header fxLayout="column" fxLayoutAlign="center center">
+        <mat-card-title style="margin: 20px 0">Ingresa IMC</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="form" class="section-save__form">
+          <mat-form-field  class="section-save__form-input">
+            <mat-label class="text">Peso kg.</mat-label>
+            <input matInput formControlName="weight" type="number"/>
+          </mat-form-field>
+          <mat-form-field class="section-save__form-input">
+            <mat-label class="text">Altura cm.</mat-label>
+            <input matInput formControlName="height" type="number"/>
+          </mat-form-field>
+          <mat-form-field class="section-save__form-input">
+            <mat-label class="text">Fecha.</mat-label>
+            <input matInput formControlName="height" type="date"/>
+          </mat-form-field>
+          <mat-dialog-actions>
+            <button fxLayoutAlign="center center" 
+            mat-raised-button 
+            class="button" 
+            (click)="onSubmit()"
+            >GUARDAR</button>
+          </mat-dialog-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    </div>>
+  </div>
+</div>
+

@@ -1,9 +1,9 @@
 
 import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatDialogRef, MatDialog } from "@angular/material";
-import { AutorizacionService } from '../../services/autorizeService';
+import { MatDialog, MatDialogRef } from "@angular/material";
 import { Router } from '@angular/router';
+import { AutorizacionService } from '../../services/autorizeService';
 
 @Component({
   selector: "login-modal",
@@ -29,7 +29,6 @@ export class LoginModalComponent {
   }
 
   onSubmit() {
-
     this.service.login(this.emailControl.value, this.passwordControl.value);
     this.dialogRef.close();
   }

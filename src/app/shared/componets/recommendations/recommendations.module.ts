@@ -5,13 +5,22 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RecommendationsComponent } from './recommendations.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule, MatNativeDateModule, MatDialogModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const COMMON_IMPORTS = [
     CommonModule,
     MatToolbarModule,
     FlexLayoutModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatDialogModule
 ];
 
 const COMMON_DECLARATIONS = [RecommendationsComponent];

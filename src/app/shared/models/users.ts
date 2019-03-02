@@ -1,14 +1,10 @@
  export interface Registro {
+    uid: string;
     name?: string;
     email?: string;
     password?: string;
     weight?: number;
     height?: number;
-    gender?: string;
-    age?: Ege[];
-    key$?: string;
+    age?: number;
  }
- export interface Ege {
-   date?: number;
-   ege?: number;
- }
+

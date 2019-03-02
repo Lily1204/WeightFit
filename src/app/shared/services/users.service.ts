@@ -1,15 +1,18 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Registro } from '../models/users';
 import { map } from 'rxjs/operators';
-// para que otros modulos sean inyectados en este servicio
+import { Registro } from '../models/users';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @Injectable()
 export class UserService {
     API_ENDPOINT = 'https://weightfit-52010.firebaseio.com/users.json';
     API_ENDPOINT_2 = 'https://weightfit-52010.firebaseio.com/users/';
 
-    constructor(private afDB: AngularFireDatabase, private http: HttpClient) { }
+    constructor(
+        private db: AngularFirestore,
+        private http: HttpClient) { }
 
     public newRegister(user: Registro) {
         const body = JSON.stringify(user);
@@ -19,7 +22,11 @@ export class UserService {
         }));
     }
     public getRegister(key$: string) {
-        console.log(`${this.API_ENDPOINT_2} /${key$}.json`);
+        console.log(`${this.API_ENDPOINT_2}${key$}.json`);
         return this.http.get<Registro>( `${ this.API_ENDPOINT_2 }${ key$ }.json` );
+    }
+
+    getUsers(email: string) {
+        return this.db.collection("user", ref => ref.where("email", "==", email)).valueChanges();
     }
 }

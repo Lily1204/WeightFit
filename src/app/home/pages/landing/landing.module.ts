@@ -13,10 +13,10 @@ import { NavbarModule } from 'src/app/shared/componets/navbar/navbar.module';
 import { Routes, RouterModule } from '@angular/router';
 import { RecommendatiosModule } from 'src/app/shared/componets/recommendations/recommendations.module';
 
-const routes: Routes = [{
-  path: 'landing',
-  component: LandingComponent
-}];
+// const routes: Routes = [{
+//   path: 'landing',
+//   component: LandingComponent
+// }];
 
 const COMMON_IMPORTS = [
   CommonModule,
@@ -44,7 +44,7 @@ export default {
 };
 
 @NgModule({
-  imports: [COMMON_IMPORTS,  RouterModule.forChild(routes)],
+  imports: [COMMON_IMPORTS ],
   exports: [COMMON_DECLARATIONS],
   declarations: [COMMON_DECLARATIONS],
 })

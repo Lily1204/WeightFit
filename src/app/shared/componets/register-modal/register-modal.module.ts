@@ -1,17 +1,17 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatInputModule, MatDialogModule, MatSelectModule, MatIconModule} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { RegisterModalComponent } from './register-modal.component';
-import { AutorizacionService } from '../../services/autorizeService';
+import { MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
+import { AutorizacionService } from '../../services/autorizeService';
 import { UserService } from '../../services/users.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { RegisterModalComponent } from './register-modal.component';
 
 @NgModule({
   declarations: [ RegisterModalComponent  ],

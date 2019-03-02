@@ -17,7 +17,6 @@
 <div fxLayout="row" fxLayoutAlign="center center">
 
   <mat-form-field appearance="legacy">
-    <!-- <mat-icon matSuffix>mail</mat-icon> -->
     <mat-label>Email</mat-label>
     <input formControlName="email" matInput placeholder="Email">
     <div class="form__input-error" *ngIf="emailControl.invalid && emailControl.touched">
@@ -28,7 +27,6 @@
   </mat-form-field>
 
   <mat-form-field appearance="legacy">
-    <!-- <mat-icon matSuffix>vpn_key</mat-icon> -->
     <mat-label>Password</mat-label>
     <input formControlName="password" type="password" matInput placeholder="Password">
     <div class="form__input-error" *ngIf="passwordControl.invalid && passwordControl.touched">

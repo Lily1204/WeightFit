@@ -1,11 +1,10 @@
 
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatDialogRef, MatDialog } from "@angular/material";
+import { MatDialog, MatDialogRef } from "@angular/material";
+import { ActivatedRoute, Router } from '@angular/router';
 import { AutorizacionService } from '../../services/autorizeService';
 import { UserService } from '../../services/users.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Registro } from '../../models/users';
 
 @Component({
   selector: "register-modal",
@@ -18,13 +17,13 @@ export class RegisterModalComponent  {
   id: string;
   new = false;
 
-  user: Registro = {
-    name: "liliana",
-    email: "lili@hotmail.com",
-    password: "",
-    weight: 0,
-    height: 0
-  };
+  // user: Registro = {
+  //   name: "liliana",
+  //   email: "lili@hotmail.com",
+  //   password: "",
+  //   weight: 0,
+  //   height: 0
+  // };
 
   constructor(
     private service: AutorizacionService,
@@ -44,13 +43,7 @@ export class RegisterModalComponent  {
       gender: ["", Validators.required],
       age: [0, Validators.required],
     });
-    this.route.params.subscribe( params => {
-      this.id = params['id'];
-      if (this.id !== "new") {
-        this.resgister.getRegister(this.id)
-        .subscribe(data => this.user = data);
-      }
-    });
+
   }
 
   onSubmit() {
@@ -61,7 +54,6 @@ export class RegisterModalComponent  {
     );
     this.dialogRef.close();
   }
-
 
   get nameControl() { return this.form.get("name"); }
   get emailControl() { return this.form.get("email"); }

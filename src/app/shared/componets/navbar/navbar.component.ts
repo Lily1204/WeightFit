@@ -1,4 +1,6 @@
-import { Component, Output, EventEmitter } from "@angular/core";
+import { Component } from "@angular/core";
+import { Router } from '@angular/router';
+import { AutorizacionService } from '../../services/autorizeService';
 
 @Component({
     selector: 'navbar',
@@ -6,15 +8,10 @@ import { Component, Output, EventEmitter } from "@angular/core";
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  constructor( private router: Router,
+    private service: AutorizacionService, ) { }
 
-    @Output() toggle = new EventEmitter();
-    @Output() openModal = new EventEmitter();
-
-    onToggle() {
-      this.toggle.emit();
-    }
-
-    onOpenModal(type: string) {
-      this.openModal.emit(type);
-    }
+  logout() {
+    this.service.logout();
+  }
 }
