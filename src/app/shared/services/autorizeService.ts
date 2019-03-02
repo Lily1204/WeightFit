@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
-
 import { map } from 'rxjs/Operators';
+
 @Injectable()
 export class AutorizacionService {
     userId: string;
@@ -11,7 +11,6 @@ export class AutorizacionService {
         private router: Router) {
 
     }
-
 
  login = (email, password) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword (email, password)
