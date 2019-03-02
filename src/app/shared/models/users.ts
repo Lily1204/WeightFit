@@ -1,5 +1,4 @@
  export interface Registro {
-    uid: string;
     name?: string;
     email?: string;
     password?: string;

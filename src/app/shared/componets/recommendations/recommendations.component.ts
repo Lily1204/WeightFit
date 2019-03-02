@@ -35,12 +35,6 @@ constructor(
 }
 ngOnInit() {
 
-      this.afAuth.user.subscribe(data => {
-        this.userService.getUsers(data.email).subscribe(dat => {
-          this.dataUser = dat;
-          return this.dataUser;
-        });
-      });
   }
   onSubmit() {
 
