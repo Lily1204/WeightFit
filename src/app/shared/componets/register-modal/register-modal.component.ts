@@ -25,12 +25,12 @@ export class RegisterModalComponent  {
     public resgister: UserService,
   ) {
     this.form = fb.group({
-      name: ["", Validators.required],
-      email: ["", Validators.required],
-      password: ["", Validators.required],
+      name: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required, Validators.minLength(6)]],
       weight: [0, Validators.required],
       height: [0, Validators.required],
-      gender: ["", Validators.required],
+      // gender: ["", Validators.required],
       age: [0, Validators.required],
     });
   }
@@ -46,6 +46,6 @@ export class RegisterModalComponent  {
   get passwordControl() { return this.form.get("password"); }
   get weightControl() { return this.form.get("weight"); }
   get heightControl() { return this.form.get("height"); }
-  get genderControl() { return this.form.get("gender"); }
+  // get genderControl() { return this.form.get("gender"); }
   get ageControl() { return this.form.get("age"); }
 }

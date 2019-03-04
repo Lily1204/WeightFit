@@ -23,8 +23,8 @@ export class LoginModalComponent {
   ) {
 
     this.form = fb.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required]
+      email: ["", [ Validators.required, Validators.email] ],
+      password: ["", [ Validators.required, Validators.minLength(6)]]
     });
   }
 

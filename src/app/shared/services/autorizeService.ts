@@ -33,12 +33,12 @@ export class AutorizacionService {
     this.angularFireAuth.auth
     .signInWithEmailAndPassword (email, password)
     .then ((response) => {
-        alert ('Usuario logeado con exito');
+        // alert ('Usuario logeado con exito');
         this.router.navigate(["/landing"]);
         console.log(response);
     })
     .catch((error) => {
-        alert('un error a ocurrido');
+        alert('un usuario no existente');
         console.log(error);
     });
 }
@@ -66,8 +66,7 @@ signUp = (user: Registro) => {
 }
 
 logout() {
-    return this.angularFireAuth.auth.signOut().then(() => {
-        localStorage.removeItem("user");
+     this.angularFireAuth.auth.signOut().then(() => {
         this.router.navigate(["/"]);
       });
   }
