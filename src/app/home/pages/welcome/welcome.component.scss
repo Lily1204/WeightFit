@@ -4,13 +4,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: bisque;
     background-image: url("../../../../assets/images/fondo.jpg");
     background-repeat: no-repeat;
     background-size: cover;
    .leyenda{
        text-align: center;
-        width: 500px;
         background: rgba(186, 206, 186, 0.3) ;
         .image{
             height: 100px;
@@ -22,10 +20,11 @@
     p{
         font-size: 30px;
     }
+    .button{
+        background-color: black;
+        width: 150px;
+        color: white;
+    }
    }
 }
-.button{
-    background-color: black;
-    width: 150px;
-    color: white;
-}
+

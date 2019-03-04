@@ -17,22 +17,12 @@ export class RegisterModalComponent  {
   id: string;
   new = false;
 
-  // user: Registro = {
-  //   name: "liliana",
-  //   email: "lili@hotmail.com",
-  //   password: "",
-  //   weight: 0,
-  //   height: 0
-  // };
-
   constructor(
-    private service: AutorizacionService,
+    private autorizacionService: AutorizacionService,
     public dialogRef: MatDialogRef<RegisterModalComponent>,
     private fb: FormBuilder,
     public dialog: MatDialog,
     public resgister: UserService,
-    private router: Router,
-    private route: ActivatedRoute
   ) {
     this.form = fb.group({
       name: ["", Validators.required],
@@ -43,15 +33,11 @@ export class RegisterModalComponent  {
       gender: ["", Validators.required],
       age: [0, Validators.required],
     });
-
   }
 
   onSubmit() {
-    this.service.registro(this.emailControl.value, this.passwordControl.value);
-    console.log(this.emailControl.value, this.passwordControl.value);
-    this.resgister.newRegister(this.form.value).subscribe( ru =>
-    ru = this.router.navigate(["/landing"])
-    );
+    this.autorizacionService.login(this.emailControl.value, this.passwordControl.value);
+    this.autorizacionService.signUp(this.form.value );
     this.dialogRef.close();
   }
 

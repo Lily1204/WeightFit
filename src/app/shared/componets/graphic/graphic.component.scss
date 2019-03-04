@@ -1,0 +1,16 @@
+
+table {
+  width: 100%;
+}
+
+.graphic {
+  margin: 30px 0;
+  &-content {
+    height: 270px;
+    overflow: auto;
+  }
+}
+
+tr:nth-child(even) {
+  background-color: bisque;
+}

@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { AutorizacionService } from '../../services/autorizeService';
 import { UserService } from '../../services/users.service';
 import { RegisterModalComponent } from './register-modal.component';
+import { GraphicModule } from '../graphic/graphic.module';
 
 @NgModule({
   declarations: [ RegisterModalComponent  ],
@@ -27,7 +28,8 @@ import { RegisterModalComponent } from './register-modal.component';
     MatIconModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
-    HttpClientModule
+    HttpClientModule,
+    GraphicModule
   ],
   exports: [ RegisterModalComponent],
   entryComponents: [RegisterModalComponent],

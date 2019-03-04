@@ -1,0 +1,65 @@
+<section fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center center"  fxLayoutAlign.gt-xs="space-around center " fxLayoutGap="30px;" >
+  <div fxLayout="column" fxLayoutAlign="center">
+    <div fxFlex="100" fxFlex.gt-xs="50">
+        <p>
+            Búsqueda por:
+            <mat-button-toggle-group
+              appearance="legacy"
+              name="fontStyle"
+              aria-label="Font Style"
+            >
+              <mat-button-toggle value="semana" (change)="onValChange($event.value)"
+                >Semana</mat-button-toggle
+              >
+              <mat-button-toggle value="mes" (change)="onValChange($event.value)"
+                >Mes</mat-button-toggle
+              >
+              <mat-button-toggle value="año" (change)="onValChange($event.value)"
+                >Año</mat-button-toggle
+              >
+            </mat-button-toggle-group>
+          </p>
+      <canvas
+        baseChart
+        width="auto"
+        height="auto"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+      ></canvas>
+    </div>
+
+  </div>
+
+  <div fxFlex.gt-xs="50">
+    <div fxFlexGap="20px" class="graphic">
+      <span>Historial de pesos</span>
+      <div class="graphic-content">
+        <table mat-table [dataSource]="data" class="mat-elevation-z8">
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef>Fecha ingreso</th>
+            <td mat-cell *matCellDef="let data">
+              {{ data.date.seconds | date: "MM-dd-yyyy" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef>Peso</th>
+            <td mat-cell *matCellDef="let data">
+              {{ data.weight }}
+            </td></ng-container
+          >
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns; sticky: true"
+          ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
